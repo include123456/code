@@ -78,6 +78,8 @@ public class MyFreeMarker implements BaseFreeMarker {
             prop.setComment(fieldAnnotation.comment());
             // 长度
             prop.setLength(fieldAnnotation.length());
+            // field类型
+            prop.setType(field.getType().getName());
             list.add(prop);
         }
         hbm.setPropList(list);
