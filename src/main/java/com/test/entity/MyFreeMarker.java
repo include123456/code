@@ -96,6 +96,11 @@ public class MyFreeMarker implements BaseFreeMarker {
         return hbm;
     }
 
+    /**
+     * 生成hbm文件
+     * 
+     * @throws Exception
+     */
     public void createHbm() throws Exception {
         Map map = new HashMap();
         map.put("hbm", this.getHbm());
