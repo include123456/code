@@ -1,12 +1,21 @@
+<#if bpo??>
 package com.sinovatech.b2b.b2b.model.bpo;
-
-import com.sinovatech.b2b.b2b.model.dao.b2bCustomerDao;
-import com.sinovatech.b2b.b2b.model.dto.Tb2bCustomerDTO;
+<#assign B2bDao>${bpo.clazzName?replace("Tb","B")?replace("DTO","Dao")}</#assign>
+<#assign b2bDao>${bpo.clazzName?replace("Tb","b")?replace("DTO","Dao")}</#assign>
+<#assign B2bBpo>${bpo.clazzName?replace("Tb","B")?replace("DTO","Bpo")}</#assign>
+import com.sinovatech.b2b.b2b.model.dao.${B2bDao};
+import com.sinovatech.b2b.b2b.model.dto.${bpo.clazzName};
 import com.sinovatech.common.model.bpo.BpoSupport;
 
-public class TBpo extends BpoSupport {
+/**
+* ${bpo.tableComment}
+*
+* @author shuyi
+* @date ${.now?string["yyyy-MM-dd HH:mm"]}
+*/
+public class ${B2bBpo} extends BpoSupport {
 
-private B2bCustomerDao b2bCustomerDao;
+private ${B2bDao} ${b2bDao};
 
     /**
     * 获取
@@ -14,8 +23,8 @@ private B2bCustomerDao b2bCustomerDao;
     * @param id
     * @return
     */
-    public Tb2bCustomerDTO get(String id) throws Exception {
-        return b2bCustomerDao.get(id);
+    public ${bpo.clazzName} get(String id) throws Exception {
+        return ${b2bDao}.get(id);
     }
 
     /**
@@ -24,8 +33,8 @@ private B2bCustomerDao b2bCustomerDao;
     * @param dto
     * @throws Exception
     */
-    public void save(Tb2bCustomerDTO dto) throws Exception {
-        b2bCustomerDao.save(dto);
+    public void save(${bpo.clazzName} dto) throws Exception {
+        ${b2bDao}.save(dto);
     }
 
     /**
@@ -35,7 +44,7 @@ private B2bCustomerDao b2bCustomerDao;
     * @throws Exception
     */
     public void delete(String id) throws Exception {
-        b2bCustomerDao.delete(id);
+        ${b2bDao}.delete(id);
     }
 
     /**
@@ -44,25 +53,26 @@ private B2bCustomerDao b2bCustomerDao;
     * @param dto
     * @throws Exception
     */
-    public void update(Tb2bCustomerDTO dto) throws Exception {
-        b2bCustomerDao.update(dto);
+    public void update(${bpo.clazzName} dto) throws Exception {
+        ${b2bDao}.update(dto);
     }
 
     /**
     * 通过参数获取dto
     *
-    * @author: shuyi
-    * @date 2019/1/21 15:23
+    * @param dto
+    * @throws Exception
     */
-    public Tb2bCustomerDTO getByParams(Tb2bCustomerDTO dto) throws Exception {
-        return b2bCustomerDao.getByParams(dto);
+    public ${bpo.clazzName} getByParams(${bpo.clazzName} dto) throws Exception {
+        return ${b2bDao}.getByParams(dto);
     }
 
-    public b2bCustomerDao getb2bCustomerDao() {
-        return b2bCustomerDao;
+    public ${B2bDao} get${B2bDao}() {
+        return ${b2bDao};
     }
 
-    public void setb2bCustomerDao(b2bCustomerDao b2bCustomerDao) {
-        this.b2bCustomerDao = b2bCustomerDao;
+    public void set${B2bDao}(${B2bDao} b2bCustomerDao) {
+        this.${b2bDao} = ${b2bDao};
     }
 }
+</#if>

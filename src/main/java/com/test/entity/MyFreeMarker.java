@@ -150,7 +150,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public Set<String> getDtoImport() throws Exception {
         Set<String> packageSet = new LinkedHashSet<String>();
-        Hbm hbm = this.getHbm();
+        Hbm hbm = this.hbm;
         List<Prop> propList = this.hbm.getPropList();
         for (Prop p : propList) {
             if (p.getType().equals(Date.class.getName())) {
@@ -167,7 +167,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public void createDto() throws Exception {
         Map map = new HashMap();
-        map.put("dto", this.getHbm());
+        map.put("dto", this.hbm);
         map.put("packageSet", this.getDtoImport());
         this.createFile("dto", map, this.hbm.getClazzName() + ".java");
     }
@@ -179,9 +179,33 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public void createDao() throws Exception {
         Map map = new HashMap();
-        map.put("dao", this.getHbm());
+        map.put("dao", this.hbm);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
         this.createFile("dao", map, clazzName + ".java");
+    }
+
+    /**
+     * 创建bpo文件
+     * 
+     * @throws Exception
+     */
+    public void createBpo() throws Exception {
+        Map map = new HashMap();
+        map.put("bpo", this.hbm);
+        String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Bpo");
+        this.createFile("bpo", map, clazzName + ".java");
+    }
+
+    /**
+     * 创建facade文件
+     * 
+     * @throws Exception
+     */
+    public void createFacade() throws Exception {
+        Map map = new HashMap();
+        map.put("facade", this.hbm);
+        String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Facade");
+        this.createFile("facade", map, clazzName + ".java");
     }
 
 }
