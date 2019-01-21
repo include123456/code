@@ -9,7 +9,7 @@ import com.sinovatech.b2b.b2b.model.dto.${facade.clazzName};
 * ${facade.tableComment}
 *
 * @author shuyi
-* @date ${.now?string["yyyy-MM-dd HH:mm"]}
+* @date ${.now?string["yyyy-MM-dd HH:mm:ss"]}
 */
 public class ${b2bFacade} {
 

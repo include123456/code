@@ -8,7 +8,7 @@ import com.sinovatech.common.dao.BaseDaoSupport;
 * ${dao.tableComment}
 *
 * @author shuyi
-* @date ${.now?string["yyyy-MM-dd HH:mm"]}
+* @date ${.now?string["yyyy-MM-dd HH:mm:ss"]}
 */
 public class ${B2bDao} extends BaseDaoSupport {
 
