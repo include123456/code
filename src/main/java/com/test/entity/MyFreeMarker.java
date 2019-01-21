@@ -208,4 +208,10 @@ public class MyFreeMarker implements BaseFreeMarker {
         this.createFile("facade", map, clazzName + ".java");
     }
 
+    public void createConfig() throws Exception {
+        Map map = new HashMap();
+        map.put("config", this.hbm);
+        this.createFile("config", map, this.hbm.getTableName() + ".config.xml");
+    }
+
 }

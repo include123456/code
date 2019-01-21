@@ -30,5 +30,7 @@ public class Test {
         factory.createBpo();
         // 创建facade文件
         factory.createFacade();
+        // 创建xml文件
+        factory.createConfig();
     }
 }
