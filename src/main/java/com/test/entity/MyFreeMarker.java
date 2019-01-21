@@ -29,6 +29,16 @@ public class MyFreeMarker implements BaseFreeMarker {
     @Value("${outpath}")
     private String outPath;
 
+    private Hbm hbm;
+
+    public MyFreeMarker() {
+        try {
+            this.hbm = this.getHbm();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 输出模板生成的文件
      * 
@@ -101,14 +111,17 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public void createHbm() throws Exception {
         Map map = new HashMap();
-        map.put("hbm", this.getHbm());
+        map.put("hbm", this.hbm);
         this.createFile("hbm", map, ".xml");
     }
 
     public void createSql() throws Exception {
         Map map = new HashMap();
-        map.put("sql", this.getHbm());
-        this.createFile("sql",map,".sql");
+
+
+
+      //  map.put("sql", this.hbm);
+        this.createFile("sql", map, ".sql");
     }
 
 }
