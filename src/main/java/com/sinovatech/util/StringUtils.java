@@ -1,6 +1,6 @@
 package com.sinovatech.util;
 
-public class StringUtils {
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     public static final char UNDERLINE = '_';
 

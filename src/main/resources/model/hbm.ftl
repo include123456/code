@@ -8,17 +8,18 @@
            table="${hbm.tableName}">
         <comment>${hbm.tableComment}</comment>
     <#list hbm.propList as p>
-        <#if p.name == "id">
+        <#if p.fieldName == "id">
         <id name="${p.fieldName}" type="${p.type}">
-            <column name="CUSTOMER_ID" length="50"/>
+            <column name="${p.name}" length="<#if p.length != "">${p.length}<#else>32</#if>"/>
             <generator class="uuid.hex"/>
         </id>
-        </#if>
-        <property name="loginCode" type="java.lang.String">
-            <column name="LOGIN_CODE" length="50">
-                <comment>登录工号</comment>
+        <#else>
+        <property name="${p.fieldName}" type="${p.type}">
+            <column name="${p.name}" <#if p.length != "">length="${p.length}"</#if>>
+                <comment>${p.comment}</comment>
             </column>
         </property>
+        </#if>
     </#list>
     </class>
 </hibernate-mapping>

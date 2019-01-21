@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Prop {
 
     /**
-     * name
+     * name 表中对应的字段名字
      */
     private String name;
 

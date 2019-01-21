@@ -10,13 +10,12 @@ import java.lang.annotation.Target;
 public @interface TableFiled {
 
     /**
-     * 长度
-     */
-    String length() default "";
-
-    /**
      * 注释
      */
     String comment();
 
+    /**
+     * 长度
+     */
+    String length() default "";
 }

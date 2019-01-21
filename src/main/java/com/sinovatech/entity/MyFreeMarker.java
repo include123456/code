@@ -20,6 +20,7 @@ import com.sinovatech.util.StringUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import org.springframework.util.ObjectUtils;
 
 @Component
 public class MyFreeMarker implements BaseFreeMarker {
@@ -67,19 +68,22 @@ public class MyFreeMarker implements BaseFreeMarker {
         List<Prop> list = new ArrayList<Prop>();
         for (Field field : fields) {
             TableFiled fieldAnnotation = field.getAnnotation(TableFiled.class);
+            if (ObjectUtils.isEmpty(fieldAnnotation)) {
+                continue;
+            }
             prop = new Prop();
             // field名字
             String name = field.getName();
             // 表中对应的name
-            prop.setName(StringUtils.getTableField(name));
+            prop.setName(StringUtils.getTableField(name).toUpperCase());
             // field name
-            prop.setFieldName(name);
+            prop.setFieldName(name.trim());
             // 注释
-            prop.setComment(fieldAnnotation.comment());
+            prop.setComment(fieldAnnotation.comment().trim());
             // 长度
-            prop.setLength(fieldAnnotation.length());
+            prop.setLength(fieldAnnotation.length().trim());
             // field类型
-            prop.setType(field.getType().getName());
+            prop.setType(field.getType().getName().trim());
             list.add(prop);
         }
         hbm.setPropList(list);
