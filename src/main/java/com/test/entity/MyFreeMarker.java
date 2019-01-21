@@ -180,7 +180,8 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createDao() throws Exception {
         Map map = new HashMap();
         map.put("dao", this.getHbm());
-        this.createFile("dao", map, this.hbm.getClazzName() + ".java");
+        String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
+        this.createFile("dao", map, clazzName + ".java");
     }
 
 }

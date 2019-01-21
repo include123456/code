@@ -21,5 +21,7 @@ public class Test {
         factory.createHbm();
         factory.createSql();
         factory.createDto();
+        factory.createDao();
+
     }
 }

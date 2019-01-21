@@ -1,75 +1,74 @@
-package com.sinovatech.b2b.customer.dao;
+<#if dao??>
+package com.sinovatech.b2b.b2b.model.dao;
 
-import javax.annotation.Resource;
-
-import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
-
-import com.sinovatech.b2b.b2b.model.dto.Tb2bCustomerDTO;
+import com.sinovatech.b2b.b2b.model.dto.${dao.clazzName};
 import com.sinovatech.common.dao.BaseDaoSupport;
 
 /**
-* c端用户信息
-*
-* @author shuyi
-* @date 2019.01.16
+* ${dao.tableComment}
 */
-@Repository
-public class B2bCustomerDao extends BaseDaoSupport {
+public class ${dao.clazzName?replace("Tb","B")?replace("DTO","Dao")} extends BaseDaoSupport {
 
-/**
-* 注入sessionFactory
-*
-* @param sessionFactory
-*/
-@Resource(name = "sessionFactory")
-public void setMySessionf(SessionFactory sessionFactory) {
-super.setSessionFactory(sessionFactory);
-}
+    /**
+    * 注入sessionFactory
+    *
+    * @param sessionFactory
+    */
+    @Resource(name = "sessionFactory")
+    public void setMySessionf(SessionFactory sessionFactory) {
+    super.setSessionFactory(sessionFactory);
+    }
 
-/**
-* 保存
-*
-* @param dto
-* @throws Exception
-*/
-public void save(Tb2bCustomerDTO dto) throws Exception {
-super.save(dto);
-}
 
-/**
-* 通过账户密码获取c端用户信息
-*
-* @param loginCode
-* @param password
-* @return
-* @throws Exception
-*/
-public Tb2bCustomerDTO getByLoginCodeAndPwd(String loginCode, String password) throws Exception {
-String hql = "from Tb2bCustomerDTO where loginCode = ? and password = ? ";
-return super.getUniqueResult(hql, loginCode, password);
-}
+    /**
+    * 获取
+    *
+    * @param id
+    * @return
+    * @throws Exception
+    */
+    public ${dao.clazzName} get(String id) throws Exception {
+        return super.getUniqueResult(${dao.clazzName}.class, id);
+    }
 
-/**
-* 根据登录工号获取c端用户信息
-*
-* @param loginCode
-* @return
-* @throws Exception
-*/
-public Tb2bCustomerDTO getByLoginCode(String loginCode) throws Exception {
-return super.getUniqueEntityBySQL("select * from b2b_customer c where c.login_code = ? ", Tb2bCustomerDTO.class,
-loginCode);
-}
+    /**
+    * 保存
+    *
+    * @param dto
+    * @throws Exception
+    */
+    public void save(${dao.clazzName} dto) throws Exception {
+        super.save(dto);
+    }
 
-/**
-* 根据参数获取dto
-*
-* @param dto
-* @return
-*/
-public Tb2bCustomerDTO getByParams(Tb2bCustomerDTO dto) throws Exception {
-return super.getUniqueResultByDTO(dto);
-}
+    /**
+    * 删除
+    *
+    * @param id
+    * @throws Exception
+    */
+    public void delete(String id) throws Exception {
+        super.delete(${dao.clazzName}.class, id);
+    }
 
+    /**
+    * 更新
+    *
+    * @param dto
+    * @throws Exception
+    */
+    public void update(${dao.clazzName} dto) throws Exception {
+        super.update(dto);
+    }
+
+    /**
+    * 根据参数获取dto
+    *
+    * @param dto
+    * @return
+    */
+    public ${dao.clazzName} getByParams(${dao.clazzName} dto) throws Exception {
+        return super.getUniqueResultByDTO(dto);
+    }
 }
+</#if>
