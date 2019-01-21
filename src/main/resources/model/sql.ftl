@@ -15,7 +15,7 @@ comment on table ${sql.tableName}
 is '${sql.tableComment}';
 -- Add comments to the columns
 <#list sql.propList as p>
-comment on column ${sql.tableName}.${p.name}
+comment on column ${sql.tableName}.${p.name?lower_case}
 is '${p.comment}';
 </#list>
 </#if>
