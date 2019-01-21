@@ -18,9 +18,7 @@ public class Test {
 
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
         MyFreeMarker factory = (MyFreeMarker)ac.getBean("myFreeMarker");
-        HashMap<String,Object> map = new HashMap();
-        Hbm hbm = factory.getHbm();
-        map.put("hbm", hbm);
-        factory.createFile("hbm", map, ".xml");
+        factory.createHbm();
+        
     }
 }

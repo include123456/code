@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,7 +56,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     }
 
     /**
-     * 生成hbm.xml文件
+     * 获取hbm文件属性
      * 
      * @return
      * @throws Exception
@@ -93,6 +94,12 @@ public class MyFreeMarker implements BaseFreeMarker {
         }
         hbm.setPropList(list);
         return hbm;
+    }
+
+    public void createHbm() throws Exception {
+        Map map = new HashMap();
+        map.put("hbm", this.getHbm());
+        this.createFile("hbm", map, ".xml");
     }
 
 }
