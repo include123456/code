@@ -9,8 +9,6 @@ import java.util.Date;
 /**
  * 这是个模板,依靠此文件生成 hmb.xml,DTO ,Dao ,Service ,ServiceImpl,sql
  */
-
-@Component
 @Table(clazzName = "Tb2bCustomerDTO", name = "B2B_CUSTOMER", comment = "c端用户信息表映射")
 public class Model {
 

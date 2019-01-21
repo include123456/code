@@ -28,8 +28,6 @@ public class MyFreeMarker implements BaseFreeMarker {
 
     @Value("${outpath}")
     private String outPath;
-    @Resource
-    private Model model;
 
     /**
      * 输出模板生成的文件
@@ -105,6 +103,12 @@ public class MyFreeMarker implements BaseFreeMarker {
         Map map = new HashMap();
         map.put("hbm", this.getHbm());
         this.createFile("hbm", map, ".xml");
+    }
+
+    public void createSql() throws Exception {
+        Map map = new HashMap();
+        map.put("sql", this.getHbm());
+        this.createFile("sql",map,".sql");
     }
 
 }
