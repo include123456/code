@@ -15,12 +15,12 @@ public class Model {
     @TableFiled(comment = "主键")
     String id;
     @TableFiled(comment = "用户名", length = "100")
-    String name;
+    String userName;
     @TableFiled(comment = "年龄")
-    Integer age;
+    Integer userAge;
     @TableFiled(comment = "创建时间")
     Date createTime;
     @TableFiled(comment = "财产")
-    Double money;
+    Double userMoney;
 
 }
