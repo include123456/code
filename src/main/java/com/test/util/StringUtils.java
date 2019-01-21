@@ -1,4 +1,4 @@
-package com.sinovatech.util;
+package com.test.util;
 
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 

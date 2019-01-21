@@ -1,12 +1,12 @@
-package com.sinovatech.test;
+package com.test.test;
 
 import java.util.HashMap;
 
-import com.sinovatech.entity.Hbm;
+import com.test.entity.Hbm;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.sinovatech.entity.MyFreeMarker;
+import com.test.entity.MyFreeMarker;
 
 /**
  * @author shuyi

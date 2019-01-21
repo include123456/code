@@ -1,4 +1,4 @@
-package com.sinovatech.entity;
+package com.test.entity;
 
 import java.util.List;
 

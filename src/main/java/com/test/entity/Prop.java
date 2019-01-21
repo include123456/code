@@ -1,4 +1,4 @@
-package com.sinovatech.entity;
+package com.test.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

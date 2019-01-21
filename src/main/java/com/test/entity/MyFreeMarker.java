@@ -1,4 +1,4 @@
-package com.sinovatech.entity;
+package com.test.entity;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,10 +13,10 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.sinovatech.annotation.Table;
-import com.sinovatech.annotation.TableFiled;
-import com.sinovatech.model.Model;
-import com.sinovatech.util.StringUtils;
+import com.test.annotation.Table;
+import com.test.annotation.TableFiled;
+import com.test.model.Model;
+import com.test.util.StringUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

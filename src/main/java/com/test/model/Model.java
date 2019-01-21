@@ -1,7 +1,7 @@
-package com.sinovatech.model;
+package com.test.model;
 
-import com.sinovatech.annotation.Table;
-import com.sinovatech.annotation.TableFiled;
+import com.test.annotation.Table;
+import com.test.annotation.TableFiled;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
