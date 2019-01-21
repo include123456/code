@@ -18,17 +18,15 @@ public class Model {
     String id;
     @TableFiled(comment = "登录工号", length = "32")
     String loginCode;
-    /** 登录密码 */
     @TableFiled(comment = "登录密码", length = "32")
     private String password;
-    /** 手机号码 */
     @TableFiled(comment = "手机号码", length = "20")
     private String phoneNo;
     @TableFiled(comment = "姓名", length = "50")
     private String name;
     @TableFiled(comment = "客户状态", length = "32")
     private String status;
-    @TableFiled(comment = "是否同意协议（0-未同意，1-已同意", length = "50")
+    @TableFiled(comment = "是否同意协议（0-未同意，1-已同意)", length = "50")
     private String agreementOrNot;
     @TableFiled(comment = "注册时间")
     private Date registerTime;
