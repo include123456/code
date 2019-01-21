@@ -20,5 +20,6 @@ public class Test {
         MyFreeMarker factory = (MyFreeMarker)ac.getBean("myFreeMarker");
         factory.createHbm();
         factory.createSql();
+        factory.createDto();
     }
 }

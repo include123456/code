@@ -4,15 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.test.util.Consts;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import com.test.annotation.Table;
@@ -142,8 +140,37 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public void createSql() throws Exception {
         Map map = new HashMap();
-        map.put("sql", getSql());
+        map.put("sql", this.getSql());
         this.createFile("sql", map, ".txt");
+    }
+
+    /**
+     * 获取dto需要导入的包
+     * 
+     * @return
+     */
+    public Set<String> getDtoImport() throws Exception {
+        Set<String> packageSet = new LinkedHashSet<String>();
+        Hbm hbm = this.getHbm();
+        List<Prop> propList = this.hbm.getPropList();
+        for (Prop p : propList) {
+            if (p.getType().equals(Date.class.getName())) {
+                packageSet.add(Date.class.getName());
+            }
+        }
+        return packageSet;
+    }
+
+    /**
+     * 创建dto文件
+     * 
+     * @throws Exception
+     */
+    public void createDto() throws Exception {
+        Map map = new HashMap();
+        map.put("dto", getHbm());
+        map.put("packageSet", this.getDtoImport());
+        this.createFile("dto", map, ".java");
     }
 
 }
