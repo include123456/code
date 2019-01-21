@@ -9,10 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
+import com.test.util.Consts;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
@@ -21,7 +22,6 @@ import com.test.util.StringUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import org.springframework.util.ObjectUtils;
 
 @Component
 public class MyFreeMarker implements BaseFreeMarker {
@@ -115,13 +115,35 @@ public class MyFreeMarker implements BaseFreeMarker {
         this.createFile("hbm", map, ".xml");
     }
 
+    /**
+     * 装配sql参数
+     */
+    public Hbm getSql() {
+        Hbm hbm = this.hbm;
+        // 装配数据库字段
+        List<Prop> list = new ArrayList<Prop>();
+        Prop sqlProp;
+        for (Prop prop : this.hbm.getPropList()) {
+            sqlProp = new Prop();
+            BeanUtils.copyProperties(prop, sqlProp);
+            sqlProp.setType(Consts.configMap.get(prop.getType()));
+            list.add(sqlProp);
+        }
+        Hbm newHbm = new Hbm();
+        BeanUtils.copyProperties(hbm, newHbm);
+        newHbm.setPropList(list);
+        return newHbm;
+    }
+
+    /**
+     * 生成sql文件
+     * 
+     * @throws Exception
+     */
     public void createSql() throws Exception {
         Map map = new HashMap();
-
-
-
-      //  map.put("sql", this.hbm);
-        this.createFile("sql", map, ".sql");
+        map.put("sql", getSql());
+        this.createFile("sql", map, ".txt");
     }
 
 }

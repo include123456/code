@@ -16,9 +16,9 @@ public class Consts {
     public static final Map<String, String> configMap = new HashMap<String, String>();
 
     static {
-        configMap.put(String.class.getSimpleName(), "VARCHAR2");
-        configMap.put(Date.class.getSimpleName(), "DATE");
-        configMap.put(Double.class.getSimpleName(), "NUMBER");
+        configMap.put(String.class.getName(), "VARCHAR2");
+        configMap.put(Date.class.getName(), "DATE");
+        configMap.put(Double.class.getName(), "NUMBER");
     }
 
 }

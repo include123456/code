@@ -19,6 +19,6 @@ public class Test {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
         MyFreeMarker factory = (MyFreeMarker)ac.getBean("myFreeMarker");
         factory.createHbm();
-        
+        factory.createSql();
     }
 }
