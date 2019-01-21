@@ -39,6 +39,11 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createFile(String model, Map map, String fileType) throws Exception {
+
+        File outDir = new File(this.outPath);
+        if (!outDir.isDirectory()) {
+            outDir.mkdirs();
+        }
         Configuration configuration = new Configuration();
         String path = Thread.currentThread().getClass().getResource("/").getPath();
         String dir = (path + "model/").substring(1);
