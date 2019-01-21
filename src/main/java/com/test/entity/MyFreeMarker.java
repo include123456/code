@@ -6,16 +6,15 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.*;
 
-import com.test.util.Consts;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
 import com.test.model.Model;
+import com.test.util.Consts;
 import com.test.util.StringUtils;
 
 import freemarker.template.Configuration;
@@ -42,13 +41,13 @@ public class MyFreeMarker implements BaseFreeMarker {
      * 
      * @param model
      * @param map
-     * @param fileType
+     * @param fileName
      * @throws Exception
      */
-    public void createFile(String model, Map map, String fileType) throws Exception {
+    public void createFile(String model, Map map, String fileName) throws Exception {
 
         File outDir = new File(this.outPath);
-        if (!outDir.isDirectory()) {
+        if (!outDir.exists()) {
             outDir.mkdirs();
         }
         Configuration configuration = new Configuration();
@@ -57,7 +56,7 @@ public class MyFreeMarker implements BaseFreeMarker {
         File file = new File(dir);
         configuration.setDirectoryForTemplateLoading(file);
         Template template = configuration.getTemplate(model + ".ftl", "UTF-8");
-        Writer out = new FileWriter(new File(this.outPath + model + fileType));
+        Writer out = new FileWriter(new File(this.outPath + fileName));
         template.process(map, out);
     }
 
@@ -103,14 +102,14 @@ public class MyFreeMarker implements BaseFreeMarker {
     }
 
     /**
-     * 生成hbm文件
+     * 创建hbm文件
      * 
      * @throws Exception
      */
     public void createHbm() throws Exception {
         Map map = new HashMap();
         map.put("hbm", this.hbm);
-        this.createFile("hbm", map, ".xml");
+        this.createFile("hbm", map, this.hbm.getClazzName() + ".hbm.xml");
     }
 
     /**
@@ -141,7 +140,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createSql() throws Exception {
         Map map = new HashMap();
         map.put("sql", this.getSql());
-        this.createFile("sql", map, ".txt");
+        this.createFile("sql", map, this.hbm.getTableName() + ".sql");
     }
 
     /**
@@ -168,9 +167,20 @@ public class MyFreeMarker implements BaseFreeMarker {
      */
     public void createDto() throws Exception {
         Map map = new HashMap();
-        map.put("dto", getHbm());
+        map.put("dto", this.getHbm());
         map.put("packageSet", this.getDtoImport());
-        this.createFile("dto", map, ".java");
+        this.createFile("dto", map, this.hbm.getClazzName() + ".java");
+    }
+
+    /**
+     * 创建dao文件
+     * 
+     * @throws Exception
+     */
+    public void createDao() throws Exception {
+        Map map = new HashMap();
+        map.put("dao", this.getHbm());
+        this.createFile("dao", map, this.hbm.getClazzName() + ".java");
     }
 
 }
