@@ -2,6 +2,12 @@ package com.test.entity;
 
 import java.util.Map;
 
+/**
+ * freemarker接口
+ * 
+ * @author: shuyi
+ * @date 2019/1/23 14:36
+ */
 public interface BaseFreeMarker {
 
     /**
