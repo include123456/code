@@ -1,13 +1,15 @@
 package com.test.model;
 
+import java.util.Date;
+
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
-import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 /**
  * 这是个模板,依靠此文件生成 hmb.xml,DTO ,Dao ,Service ,ServiceImpl,sql
+ * 
+ * @author: shuyi
+ * @date 2019/1/23 14:31
  */
 @Table(clazzName = "Tb2bUserDTO", name = "B2B_User", comment = "用户信息表")
 public class Model {

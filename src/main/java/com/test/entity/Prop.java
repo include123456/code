@@ -5,6 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 一个字段信息
+ * 
+ * @author: shuyi
+ * @date 2019/1/23 14:29
+ */
 @Getter
 @Setter
 @AllArgsConstructor

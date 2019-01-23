@@ -7,6 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 获取hbm文件所需要的映射
+ * 
+ * @author: shuyi
+ * @date 2019/1/23 14:27
+ */
 @Getter
 @Setter
 @AllArgsConstructor

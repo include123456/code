@@ -1,8 +1,5 @@
 package com.test.test;
 
-import java.util.HashMap;
-
-import com.test.entity.Hbm;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -20,6 +20,12 @@ import com.test.util.StringUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+/**
+ * freemarker处理
+ * 
+ * @author: shuyi
+ * @date 2019/1/23 14:28
+ */
 @Component
 public class MyFreeMarker implements BaseFreeMarker {
 
