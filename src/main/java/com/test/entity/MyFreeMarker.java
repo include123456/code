@@ -214,6 +214,11 @@ public class MyFreeMarker implements BaseFreeMarker {
         this.createFile("facade", map, clazzName + ".java");
     }
 
+    /**
+     * 创建配置文件
+     * 
+     * @throws Exception
+     */
     public void createConfig() throws Exception {
         Map map = new HashMap(2);
         map.put("config", this.hbm);
