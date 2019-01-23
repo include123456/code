@@ -113,7 +113,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createHbm() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("hbm", this.hbm);
         this.createFile("hbm", map, this.hbm.getClazzName() + ".hbm.xml");
     }
@@ -144,7 +144,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createSql() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("sql", this.getSql());
         this.createFile("sql", map, this.hbm.getTableName() + ".sql");
     }
@@ -172,7 +172,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createDto() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("dto", this.hbm);
         map.put("packageSet", this.getDtoImport());
         this.createFile("dto", map, this.hbm.getClazzName() + ".java");
@@ -184,7 +184,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createDao() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("dao", this.hbm);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
         this.createFile("dao", map, clazzName + ".java");
@@ -196,7 +196,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createBpo() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("bpo", this.hbm);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Bpo");
         this.createFile("bpo", map, clazzName + ".java");
@@ -208,14 +208,14 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createFacade() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("facade", this.hbm);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Facade");
         this.createFile("facade", map, clazzName + ".java");
     }
 
     public void createConfig() throws Exception {
-        Map map = new HashMap(1);
+        Map map = new HashMap(2);
         map.put("config", this.hbm);
         this.createFile("config", map, this.hbm.getTableName() + ".config.xml");
     }
