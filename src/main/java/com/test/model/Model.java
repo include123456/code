@@ -11,7 +11,7 @@ import com.test.annotation.TableFiled;
  * @author: shuyi
  * @date 2019/1/23 14:31
  */
-@Table(clazzName = "Tb2bUserDTO", name = "B2B_User", comment = "用户信息表")
+@Table(clazzName = "Tb2bUserDTO", name = "B2B_USER", comment = "用户信息表")
 public class Model {
 
     @TableFiled(comment = "主键")
