@@ -1,7 +1,7 @@
 package com.test.test;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.test.config.Application;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.test.entity.MyFreeMarker;
 
@@ -13,7 +13,8 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Application.class);
+
         MyFreeMarker factory = (MyFreeMarker)ac.getBean("myFreeMarker");
         // 创建hbm文件
         factory.createHbm();
