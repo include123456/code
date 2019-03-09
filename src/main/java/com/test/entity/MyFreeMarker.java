@@ -53,8 +53,8 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createFile(String model, Map map, String fileName) throws Exception {
-
-        File outDir = new File(this.outPath);
+        String filePath = this.outPath + "\\" + this.hbm.getClazzName();
+        File outDir = new File(filePath);
         if (!outDir.exists()) {
             outDir.mkdirs();
         }
@@ -64,7 +64,7 @@ public class MyFreeMarker implements BaseFreeMarker {
         File file = new File(dir);
         configuration.setDirectoryForTemplateLoading(file);
         Template template = configuration.getTemplate(model + ".ftl", "UTF-8");
-        Writer out = new FileWriter(new File(this.outPath + fileName));
+        Writer out = new FileWriter(new File(filePath + "\\" + fileName));
         template.process(map, out);
     }
 
