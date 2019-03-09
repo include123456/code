@@ -30,6 +30,8 @@ public class Test {
         factory.createFacade();
         // 创建service文件
         factory.createService();
+        // 创建serviceImpl文件
+        factory.createServiceImpl();
         // 创建xml文件
         factory.createConfig();
     }

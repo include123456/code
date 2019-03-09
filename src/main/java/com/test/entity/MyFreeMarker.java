@@ -115,7 +115,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createHbm() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("hbm", this.hbm);
         this.createFile("hbm", map, this.hbm.getClazzName() + ".hbm.xml");
     }
@@ -146,7 +146,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createSql() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("sql", this.getSql());
         this.createFile("sql", map, this.hbm.getTableName() + ".sql");
     }
@@ -187,7 +187,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createDao() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("dao", this.hbm);
         map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
@@ -200,7 +200,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createBpo() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("bpo", this.hbm);
         map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Bpo");
@@ -213,7 +213,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createFacade() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("facade", this.hbm);
         map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Facade");
@@ -226,7 +226,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createConfig() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("config", this.hbm);
         this.createFile("config", map, this.hbm.getTableName() + ".config.xml");
     }
@@ -237,11 +237,24 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createService() throws Exception {
-        Map map = new HashMap(2);
+        Map map = new HashMap(4);
         map.put("service", this.hbm);
         map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Service");
         this.createFile("service", map, clazzName + ".java");
+    }
+
+    /**
+     * 创建serviceImpl
+     *
+     * @throws Exception
+     */
+    public void createServiceImpl() throws Exception {
+        Map map = new HashMap(4);
+        map.put("serviceImpl", this.hbm);
+        map.put("author", this.author);
+        String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "ServiceImpl");
+        this.createFile("serviceImpl", map, clazzName + ".java");
     }
 
 }
