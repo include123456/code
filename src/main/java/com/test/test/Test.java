@@ -1,8 +1,8 @@
 package com.test.test;
 
-import com.test.config.Application;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.test.config.Application;
 import com.test.entity.MyFreeMarker;
 
 /**
@@ -28,6 +28,8 @@ public class Test {
         factory.createBpo();
         // 创建facade文件
         factory.createFacade();
+        // 创建service文件
+        factory.createService();
         // 创建xml文件
         factory.createConfig();
     }

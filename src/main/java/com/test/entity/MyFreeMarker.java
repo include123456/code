@@ -231,4 +231,17 @@ public class MyFreeMarker implements BaseFreeMarker {
         this.createFile("config", map, this.hbm.getTableName() + ".config.xml");
     }
 
+    /**
+     * 创建service
+     *
+     * @throws Exception
+     */
+    public void createService() throws Exception {
+        Map map = new HashMap(2);
+        map.put("service", this.hbm);
+        map.put("author", this.author);
+        String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Service");
+        this.createFile("service", map, clazzName + ".java");
+    }
+
 }
