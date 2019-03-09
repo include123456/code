@@ -53,7 +53,7 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @throws Exception
      */
     public void createFile(String model, Map map, String fileName) throws Exception {
-        String filePath = this.outPath + "\\" + this.hbm.getClazzName();
+        String filePath = this.outPath + "\\" + this.hbm.getTableName();
         File outDir = new File(filePath);
         if (!outDir.exists()) {
             outDir.mkdirs();
