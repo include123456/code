@@ -7,7 +7,7 @@ package com.sinovatech.b2b.b2b.model.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sinovatech.b2b.b2b.model.bpo.${B2bDao};
+import com.sinovatech.b2b.b2b.model.dao.${B2bDao};
 import com.sinovatech.b2b.b2b.model.dto.${serviceImpl.clazzName};
 import com.sinovatech.b2b.b2b.model.service.${B2bService};
 
