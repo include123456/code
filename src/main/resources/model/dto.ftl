@@ -30,8 +30,8 @@ public class ${dto.clazzName} extends BaseDtoSupport {
     public ${p.type?substring(p.type?last_index_of(".")+1)} get${p.fieldName?substring(0,1)?upper_case}${p.fieldName?substring(1)}() {
         return ${p.fieldName};
     }
-    </#list>
 
+    </#list>
     @Override
     public String toString() {
         return super.toString();
