@@ -2,6 +2,7 @@ package com.sinovatech.b2b.b2b.model.facade;
 <#assign B2bBpo>${facade.clazzName?replace("Tb","B")?replace("DTO","Bpo")}</#assign>
 <#assign b2bBpo>${facade.clazzName?replace("Tb","b")?replace("DTO","Bpo")}</#assign>
 <#assign b2bFacade>${facade.clazzName?replace("Tb","B")?replace("DTO","Facade")}</#assign>
+
 import com.sinovatech.b2b.b2b.model.bpo.${B2bBpo};
 import com.sinovatech.b2b.b2b.model.dto.${facade.clazzName};
 

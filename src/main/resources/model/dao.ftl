@@ -1,6 +1,7 @@
 <#if dao??>
 package com.sinovatech.b2b.b2b.model.dao;
 <#assign B2bDao>${dao.clazzName?replace("Tb","B")?replace("DTO","Dao")}</#assign>
+
 import com.sinovatech.b2b.b2b.model.dto.${dao.clazzName};
 import com.sinovatech.common.dao.BaseDaoSupport;
 

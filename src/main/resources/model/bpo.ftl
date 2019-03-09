@@ -3,6 +3,7 @@ package com.sinovatech.b2b.b2b.model.bpo;
 <#assign B2bDao>${bpo.clazzName?replace("Tb","B")?replace("DTO","Dao")}</#assign>
 <#assign b2bDao>${bpo.clazzName?replace("Tb","b")?replace("DTO","Dao")}</#assign>
 <#assign B2bBpo>${bpo.clazzName?replace("Tb","B")?replace("DTO","Bpo")}</#assign>
+
 import com.sinovatech.b2b.b2b.model.dao.${B2bDao};
 import com.sinovatech.b2b.b2b.model.dto.${bpo.clazzName};
 import com.sinovatech.common.model.bpo.BpoSupport;
