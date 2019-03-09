@@ -9,7 +9,7 @@ import ${package};
 /**
 * ${dto.tableComment}
 *
-* @author shuyi
+* @author ${author}
 * @date ${.now?string["yyyy-MM-dd HH:mm:ss"]}
 */
 public class ${dto.clazzName} extends BaseDtoSupport {

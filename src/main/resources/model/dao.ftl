@@ -7,21 +7,10 @@ import com.sinovatech.common.dao.BaseDaoSupport;
 /**
 * ${dao.tableComment}
 *
-* @author shuyi
+* @author ${author}
 * @date ${.now?string["yyyy-MM-dd HH:mm:ss"]}
 */
 public class ${B2bDao} extends BaseDaoSupport {
-
-    /**
-    * 注入sessionFactory
-    *
-    * @param sessionFactory
-    */
-    @Resource(name = "sessionFactory")
-    public void setMySessionf(SessionFactory sessionFactory) {
-    super.setSessionFactory(sessionFactory);
-    }
-
 
     /**
     * 获取

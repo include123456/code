@@ -31,6 +31,8 @@ public class MyFreeMarker implements BaseFreeMarker {
 
     @Value("${outpath}")
     private String outPath;
+    @Value("${author}")
+    private String author;
 
     private Hbm hbm;
 
@@ -174,6 +176,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createDto() throws Exception {
         Map map = new HashMap(4);
         map.put("dto", this.hbm);
+        map.put("author", this.author);
         map.put("packageSet", this.getDtoImport());
         this.createFile("dto", map, this.hbm.getClazzName() + ".java");
     }
@@ -186,6 +189,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createDao() throws Exception {
         Map map = new HashMap(2);
         map.put("dao", this.hbm);
+        map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
         this.createFile("dao", map, clazzName + ".java");
     }
@@ -198,6 +202,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createBpo() throws Exception {
         Map map = new HashMap(2);
         map.put("bpo", this.hbm);
+        map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Bpo");
         this.createFile("bpo", map, clazzName + ".java");
     }
@@ -210,6 +215,7 @@ public class MyFreeMarker implements BaseFreeMarker {
     public void createFacade() throws Exception {
         Map map = new HashMap(2);
         map.put("facade", this.hbm);
+        map.put("author", this.author);
         String clazzName = this.hbm.getClazzName().replace("Tb", "B").replace("DTO", "Facade");
         this.createFile("facade", map, clazzName + ".java");
     }

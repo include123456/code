@@ -10,7 +10,7 @@ import com.sinovatech.common.model.bpo.BpoSupport;
 /**
 * ${bpo.tableComment}
 *
-* @author shuyi
+* @author ${author}
 * @date ${.now?string["yyyy-MM-dd HH:mm:ss"]}
 */
 public class ${B2bBpo} extends BpoSupport {
