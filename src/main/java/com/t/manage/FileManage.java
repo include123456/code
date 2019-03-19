@@ -35,8 +35,8 @@ public class FileManage {
 
     private static void createFile(BaseFreeMarkerHandle handle)
         throws InvocationTargetException, IllegalAccessException {
-        Class factoryClass = handle.getClass();
-        Method[] declaredMethods = factoryClass.getDeclaredMethods();
+        Class handleClass = handle.getClass();
+        Method[] declaredMethods = handleClass.getDeclaredMethods();
         for (Method method : declaredMethods) {
             if (method.isAnnotationPresent(FileCreate.class)) {
                 method.invoke(handle);
