@@ -28,4 +28,23 @@ public interface BaseFreeMarkerHandle {
      */
     TableDefinition getDefinitionByClazz(Class clazz) throws Exception;
 
+    void setTableDefinition(Class clazz) throws Exception;
+
+    void createHbm() throws Exception;
+
+    void createSql() throws Exception;
+
+    void createDto() throws Exception;
+
+    void createDao() throws Exception;
+
+    void createBpo() throws Exception;
+
+    void createFacade() throws Exception;
+
+    void createConfig() throws Exception;
+
+    void createService() throws Exception;
+
+    void createServiceImpl() throws Exception;
 }

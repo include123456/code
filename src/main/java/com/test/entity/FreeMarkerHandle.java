@@ -14,7 +14,6 @@ import org.springframework.util.ObjectUtils;
 import com.test.annotation.FileCreate;
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
-import com.test.model.Model;
 import com.test.util.Consts;
 import com.test.util.StringUtils;
 
@@ -121,7 +120,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
     /**
      * 装配sql参数
      */
-    public TableDefinition getSql() {
+    private TableDefinition getSql() {
         TableDefinition hbm = this.tableDefinition;
         // 装配数据库字段
         List<FieldProperty> list = new ArrayList<FieldProperty>();
@@ -155,7 +154,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      * 
      * @return
      */
-    public Set<String> getDtoImport() throws Exception {
+    private Set<String> getDtoImport() throws Exception {
         Set<String> packageSet = new LinkedHashSet<String>();
         TableDefinition hbm = this.tableDefinition;
         List<FieldProperty> propList = this.tableDefinition.getPropList();
