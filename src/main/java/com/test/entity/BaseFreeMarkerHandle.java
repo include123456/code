@@ -18,7 +18,7 @@ public interface BaseFreeMarkerHandle {
      * @param fileType
      * @throws Exception
      */
-    void createFile(String model, Map<String, String> map, String fileType) throws Exception;
+    void createFile(String model, Map<String, Object> map, String fileType) throws Exception;
 
     /**
      * 获取hbm文件属性
