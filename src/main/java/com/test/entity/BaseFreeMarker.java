@@ -26,6 +26,6 @@ public interface BaseFreeMarker {
      * @return
      * @throws Exception
      */
-    Hbm getHbm() throws Exception;
+    Hbm getHbm(Class clazz) throws Exception;
 
 }

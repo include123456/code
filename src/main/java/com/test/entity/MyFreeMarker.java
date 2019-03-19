@@ -36,12 +36,8 @@ public class MyFreeMarker implements BaseFreeMarker {
 
     private Hbm hbm;
 
-    public MyFreeMarker() {
-        try {
-            this.hbm = this.getHbm();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void setHbm(Class clazz) throws Exception {
+        this.hbm = getHbm(clazz);
     }
 
     /**
@@ -74,9 +70,9 @@ public class MyFreeMarker implements BaseFreeMarker {
      * @return
      * @throws Exception
      */
-    public Hbm getHbm() throws Exception {
+    public Hbm getHbm(Class clazz) throws Exception {
         Hbm hbm = new Hbm();
-        Table table = Model.class.getAnnotation(Table.class);
+        Table table = (Table)clazz.getAnnotation(Table.class);
         // 获取table上的值
         hbm.setTableName(table.name());
         hbm.setClazzName(table.clazzName());
