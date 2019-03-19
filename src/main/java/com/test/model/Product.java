@@ -3,7 +3,7 @@ package com.test.model;
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
 
-@Table(clazzName = "Tb2bProductDTO", name = "B2B_PRODUCT", comment = "商品信息表")
+@Table(clazzName = "Tb2bProductDTO", tableName = "B2B_PRODUCT", comment = "商品信息表")
 public class Product {
 
     @TableFiled(comment = "主键")

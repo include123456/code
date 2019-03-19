@@ -74,7 +74,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
         TableDefinition hbm = new TableDefinition();
         Table table = (Table)clazz.getAnnotation(Table.class);
         // 获取table上的值
-        hbm.setTableName(table.name());
+        hbm.setTableName(table.tableName());
         hbm.setClazzName(table.clazzName());
         hbm.setTableComment(table.comment());
         // 获取属性值

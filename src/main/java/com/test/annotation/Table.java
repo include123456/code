@@ -20,7 +20,7 @@ public @interface Table {
     /**
      * 表名
      */
-    String name();
+    String tableName();
 
     /**
      * 表注释
