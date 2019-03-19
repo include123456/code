@@ -1,4 +1,4 @@
-package com.test.entity;
+package com.test.handler;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,6 +6,8 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.*;
 
+import com.test.entity.FieldProperty;
+import com.test.entity.TableDefinition;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

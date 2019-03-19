@@ -1,9 +1,10 @@
-package com.test.entity;
+package com.test.manage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import com.test.handler.FreeMarkerHandle;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.test.annotation.FileCreate;

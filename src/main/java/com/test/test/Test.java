@@ -1,6 +1,6 @@
 package com.test.test;
 
-import com.test.entity.FileManage;
+import com.test.manage.FileManage;
 
 /**
  * @author shuyi
