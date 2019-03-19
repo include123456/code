@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Prop {
+public class FieldProperty {
 
     /**
      * name 表中对应的字段名字

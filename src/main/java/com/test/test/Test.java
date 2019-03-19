@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.test.annotation.Table;
 import com.test.config.Application;
-import com.test.entity.MyFreeMarker;
+import com.test.entity.FreeMarkerHandle;
 
 /**
  * @author shuyi
@@ -16,7 +16,7 @@ public class Test {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Application.class);
-        MyFreeMarker factory = (MyFreeMarker)ac.getBean("myFreeMarker");
+        FreeMarkerHandle factory = (FreeMarkerHandle)ac.getBean("freeMarkerHandle");
         Map<String, Object> beansWithAnnotation = ac.getBeansWithAnnotation(Table.class);
         beansWithAnnotation.forEach((k, v) -> {
             try {
@@ -28,7 +28,7 @@ public class Test {
         });
     }
 
-    private static void createFile(MyFreeMarker factory) throws Exception {
+    private static void createFile(FreeMarkerHandle factory) throws Exception {
         // 创建hbm文件
         factory.createHbm();
         // 创建sql文件

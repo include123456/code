@@ -2,9 +2,7 @@ package com.test.entity;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -15,9 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Hbm {
+public class TableDefinition {
 
     /**
      * class_name
@@ -37,6 +33,6 @@ public class Hbm {
     /**
      * 属性信息
      */
-    private List<Prop> propList;
+    private List<FieldProperty> propList;
 
 }

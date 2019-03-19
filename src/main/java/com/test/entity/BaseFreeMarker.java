@@ -18,7 +18,7 @@ public interface BaseFreeMarker {
      * @param fileType
      * @throws Exception
      */
-    void createFile(String model, Map map, String fileType) throws Exception;
+    void createFile(String model, Map<String, String> map, String fileType) throws Exception;
 
     /**
      * 获取hbm文件属性
@@ -26,6 +26,6 @@ public interface BaseFreeMarker {
      * @return
      * @throws Exception
      */
-    Hbm getHbm(Class clazz) throws Exception;
+    TableDefinition getDefinitionByClazz(Class clazz) throws Exception;
 
 }
