@@ -79,7 +79,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
         hbm.setClazzName(table.clazzName());
         hbm.setTableComment(table.comment());
         // 获取属性值
-        Field[] fields = Model.class.getDeclaredFields();
+        Field[] fields = clazz.getDeclaredFields();
         FieldProperty prop;
         List<FieldProperty> list = new ArrayList<FieldProperty>();
         for (Field field : fields) {
