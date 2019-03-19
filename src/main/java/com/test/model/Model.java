@@ -6,7 +6,7 @@ import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
 
 /**
- * 这是个模板,依靠此文件生成 hmb.xml,DTO,Dao,Bpo,Facade,Service,ServiceImpl,sql
+ * 这是个模板,参照此文件生成 hmb.xml,DTO,Dao,Bpo,Facade,Service,ServiceImpl,sql
  * 
  * @author: shuyi
  * @date 2019/1/23 14:31
