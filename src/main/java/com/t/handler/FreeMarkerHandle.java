@@ -6,8 +6,6 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.*;
 
-import com.t.entity.FieldProperty;
-import com.t.entity.TableDefinition;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -16,6 +14,8 @@ import org.springframework.util.ObjectUtils;
 import com.t.annotation.FileCreate;
 import com.t.annotation.Table;
 import com.t.annotation.TableFiled;
+import com.t.entity.FieldProperty;
+import com.t.entity.TableDefinition;
 import com.t.util.Consts;
 import com.t.util.StringUtils;
 
@@ -160,11 +160,9 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
         Set<String> packageSet = new LinkedHashSet<String>();
         TableDefinition hbm = this.tableDefinition;
         List<FieldProperty> propList = this.tableDefinition.getPropList();
-        for (FieldProperty p : propList) {
-            if (p.getType().equals(Date.class.getName())) {
-                packageSet.add(Date.class.getName());
-            }
-        }
+        propList.stream().filter(v -> v.getType().equals(Date.class.getName())).forEach(v -> {
+            packageSet.add(Date.class.getName());
+        });
         return packageSet;
     }
 
