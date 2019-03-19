@@ -8,7 +8,7 @@ import java.util.Map;
  * @author: shuyi
  * @date 2019/1/23 14:36
  */
-public interface BaseFreeMarker {
+public interface BaseFreeMarkerHandle {
 
     /**
      * 创建文件

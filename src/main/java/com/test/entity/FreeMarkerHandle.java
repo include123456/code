@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
+import com.test.annotation.FileCreate;
 import com.test.annotation.Table;
 import com.test.annotation.TableFiled;
 import com.test.model.Model;
@@ -27,7 +28,7 @@ import freemarker.template.Template;
  * @date 2019/1/23 14:28
  */
 @Component
-public class FreeMarkerHandle implements BaseFreeMarker {
+public class FreeMarkerHandle implements BaseFreeMarkerHandle {
 
     @Value("${outpath}")
     private String outPath;
@@ -110,6 +111,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createHbm() throws Exception {
         Map map = new HashMap(4);
         map.put("hbm", this.tableDefinition);
@@ -141,6 +143,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createSql() throws Exception {
         Map map = new HashMap(4);
         map.put("sql", this.getSql());
@@ -169,6 +172,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createDto() throws Exception {
         Map map = new HashMap(4);
         map.put("dto", this.tableDefinition);
@@ -182,6 +186,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createDao() throws Exception {
         Map map = new HashMap(4);
         map.put("dao", this.tableDefinition);
@@ -195,6 +200,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createBpo() throws Exception {
         Map map = new HashMap(4);
         map.put("bpo", this.tableDefinition);
@@ -208,6 +214,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createFacade() throws Exception {
         Map map = new HashMap(4);
         map.put("facade", this.tableDefinition);
@@ -221,6 +228,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      * 
      * @throws Exception
      */
+    @FileCreate
     public void createConfig() throws Exception {
         Map map = new HashMap(4);
         map.put("config", this.tableDefinition);
@@ -232,6 +240,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      *
      * @throws Exception
      */
+    @FileCreate
     public void createService() throws Exception {
         Map map = new HashMap(4);
         map.put("service", this.tableDefinition);
@@ -245,6 +254,7 @@ public class FreeMarkerHandle implements BaseFreeMarker {
      *
      * @throws Exception
      */
+    @FileCreate
     public void createServiceImpl() throws Exception {
         Map map = new HashMap(4);
         map.put("serviceImpl", this.tableDefinition);

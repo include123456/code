@@ -1,9 +1,12 @@
 package com.test.test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Map;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.test.annotation.FileCreate;
 import com.test.annotation.Table;
 import com.test.config.Application;
 import com.test.entity.FreeMarkerHandle;
@@ -28,25 +31,14 @@ public class Test {
         });
     }
 
-    private static void createFile(FreeMarkerHandle factory) throws Exception {
-        // 创建hbm文件
-        factory.createHbm();
-        // 创建sql文件
-        factory.createSql();
-        // 创建dto文件
-        factory.createDto();
-        // 创建dao文件
-        factory.createDao();
-        // 创建bpo文件
-        factory.createBpo();
-        // 创建facade文件
-        factory.createFacade();
-        // 创建service文件
-        factory.createService();
-        // 创建serviceImpl文件
-        factory.createServiceImpl();
-        // 创建xml文件
-        factory.createConfig();
+    private static void createFile(FreeMarkerHandle factory) throws InvocationTargetException, IllegalAccessException {
+        Class factoryClass = factory.getClass();
+        Method[] declaredMethods = factoryClass.getDeclaredMethods();
+        for (Method method : declaredMethods) {
+            if (method.isAnnotationPresent(FileCreate.class)) {
+                method.invoke(factory);
+            }
+        }
     }
 
 }
