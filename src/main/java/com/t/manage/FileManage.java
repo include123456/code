@@ -4,12 +4,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import com.t.handler.FreeMarkerHandle;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.t.annotation.FileCreate;
 import com.t.annotation.Table;
 import com.t.config.Application;
+import com.t.handler.BaseFreeMarkerHandle;
 
 /**
  * 创建文件
@@ -21,24 +21,25 @@ public class FileManage {
 
     public static void createFile() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Application.class);
-        FreeMarkerHandle factory = (FreeMarkerHandle)ac.getBean("freeMarkerHandle");
+        BaseFreeMarkerHandle handle = (BaseFreeMarkerHandle)ac.getBean("freeMarkerHandle");
         Map<String, Object> beansWithAnnotation = ac.getBeansWithAnnotation(Table.class);
         beansWithAnnotation.forEach((k, v) -> {
             try {
-                factory.setTableDefinition(v.getClass());
-                createFile(factory);
+                handle.setTableDefinition(v.getClass());
+                createFile(handle);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
 
-    private static void createFile(FreeMarkerHandle factory) throws InvocationTargetException, IllegalAccessException {
-        Class factoryClass = factory.getClass();
+    private static void createFile(BaseFreeMarkerHandle handle)
+        throws InvocationTargetException, IllegalAccessException {
+        Class factoryClass = handle.getClass();
         Method[] declaredMethods = factoryClass.getDeclaredMethods();
         for (Method method : declaredMethods) {
             if (method.isAnnotationPresent(FileCreate.class)) {
-                method.invoke(factory);
+                method.invoke(handle);
             }
         }
     }
