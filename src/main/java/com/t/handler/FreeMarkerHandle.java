@@ -1,4 +1,4 @@
-package com.test.handler;
+package com.t.handler;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,18 +6,18 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.*;
 
-import com.test.entity.FieldProperty;
-import com.test.entity.TableDefinition;
+import com.t.entity.FieldProperty;
+import com.t.entity.TableDefinition;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import com.test.annotation.FileCreate;
-import com.test.annotation.Table;
-import com.test.annotation.TableFiled;
-import com.test.util.Consts;
-import com.test.util.StringUtils;
+import com.t.annotation.FileCreate;
+import com.t.annotation.Table;
+import com.t.annotation.TableFiled;
+import com.t.util.Consts;
+import com.t.util.StringUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

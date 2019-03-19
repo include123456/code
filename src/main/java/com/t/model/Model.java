@@ -1,9 +1,9 @@
-package com.test.model;
+package com.t.model;
 
 import java.util.Date;
 
-import com.test.annotation.Table;
-import com.test.annotation.TableFiled;
+import com.t.annotation.Table;
+import com.t.annotation.TableFiled;
 
 /**
  * 这是个模板,参照此文件生成 hmb.xml,DTO,Dao,Bpo,Facade,Service,ServiceImpl,sql

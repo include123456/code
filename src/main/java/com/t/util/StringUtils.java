@@ -1,4 +1,4 @@
-package com.test.util;
+package com.t.util;
 
 /**
  * 字符串工具类

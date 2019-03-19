@@ -1,6 +1,6 @@
-package com.test.test;
+package com.t.test;
 
-import com.test.manage.FileManage;
+import com.t.manage.FileManage;
 
 /**
  * @author shuyi

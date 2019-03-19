@@ -1,4 +1,4 @@
-package com.test.util;
+package com.t.util;
 
 import java.util.Date;
 import java.util.HashMap;

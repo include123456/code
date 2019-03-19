@@ -1,7 +1,7 @@
-package com.test.model;
+package com.t.model;
 
-import com.test.annotation.Table;
-import com.test.annotation.TableFiled;
+import com.t.annotation.Table;
+import com.t.annotation.TableFiled;
 
 @Table(clazzName = "Tb2bProductDTO", tableName = "B2B_PRODUCT", comment = "商品信息表")
 public class Product {

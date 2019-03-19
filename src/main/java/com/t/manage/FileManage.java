@@ -1,15 +1,15 @@
-package com.test.manage;
+package com.t.manage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import com.test.handler.FreeMarkerHandle;
+import com.t.handler.FreeMarkerHandle;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.test.annotation.FileCreate;
-import com.test.annotation.Table;
-import com.test.config.Application;
+import com.t.annotation.FileCreate;
+import com.t.annotation.Table;
+import com.t.config.Application;
 
 /**
  * 创建文件

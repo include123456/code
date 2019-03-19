@@ -1,6 +1,6 @@
-package com.test.handler;
+package com.t.handler;
 
-import com.test.entity.TableDefinition;
+import com.t.entity.TableDefinition;
 
 import java.util.Map;
 
