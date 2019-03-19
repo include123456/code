@@ -37,7 +37,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
 
     private TableDefinition tableDefinition;
 
-    public void setHbm(Class clazz) throws Exception {
+    public void setTableDefinition(Class clazz) throws Exception {
         this.tableDefinition = getDefinitionByClazz(clazz);
     }
 
@@ -49,7 +49,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      * @param fileName
      * @throws Exception
      */
-    public void createFile(String model, Map<String,Object> map, String fileName) throws Exception {
+    public void createFile(String model, Map<String, Object> map, String fileName) throws Exception {
         String filePath = this.outPath + "\\" + this.tableDefinition.getTableName();
         File outDir = new File(filePath);
         if (!outDir.exists()) {
@@ -113,7 +113,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createHbm() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("hbm", this.tableDefinition);
         this.createFile("hbm", map, this.tableDefinition.getClazzName() + ".hbm.xml");
     }
@@ -145,7 +145,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createSql() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("sql", this.getSql());
         this.createFile("sql", map, this.tableDefinition.getTableName() + ".sql");
     }
@@ -174,7 +174,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createDto() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("dto", this.tableDefinition);
         map.put("author", this.author);
         map.put("packageSet", this.getDtoImport());
@@ -188,7 +188,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createDao() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("dao", this.tableDefinition);
         map.put("author", this.author);
         String clazzName = this.tableDefinition.getClazzName().replace("Tb", "B").replace("DTO", "Dao");
@@ -202,7 +202,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createBpo() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("bpo", this.tableDefinition);
         map.put("author", this.author);
         String clazzName = this.tableDefinition.getClazzName().replace("Tb", "B").replace("DTO", "Bpo");
@@ -216,7 +216,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createFacade() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("facade", this.tableDefinition);
         map.put("author", this.author);
         String clazzName = this.tableDefinition.getClazzName().replace("Tb", "B").replace("DTO", "Facade");
@@ -230,7 +230,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createConfig() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("config", this.tableDefinition);
         this.createFile("config", map, this.tableDefinition.getTableName() + ".config.xml");
     }
@@ -242,7 +242,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createService() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("service", this.tableDefinition);
         map.put("author", this.author);
         String clazzName = this.tableDefinition.getClazzName().replace("Tb", "B").replace("DTO", "Service");
@@ -256,7 +256,7 @@ public class FreeMarkerHandle implements BaseFreeMarkerHandle {
      */
     @FileCreate
     public void createServiceImpl() throws Exception {
-        Map<String,Object> map = new HashMap(4);
+        Map<String, Object> map = new HashMap(4);
         map.put("serviceImpl", this.tableDefinition);
         map.put("author", this.author);
         String clazzName = this.tableDefinition.getClazzName().replace("Tb", "B").replace("DTO", "ServiceImpl");

@@ -24,7 +24,7 @@ public class FileManage {
         Map<String, Object> beansWithAnnotation = ac.getBeansWithAnnotation(Table.class);
         beansWithAnnotation.forEach((k, v) -> {
             try {
-                factory.setHbm(v.getClass());
+                factory.setTableDefinition(v.getClass());
                 createFile(factory);
             } catch (Exception e) {
                 e.printStackTrace();
