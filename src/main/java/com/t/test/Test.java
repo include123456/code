@@ -8,6 +8,7 @@ import com.t.manage.FileManage;
  */
 public class Test {
 
+    // XXX 功能可以基本实现,结构上有待改善
     public static void main(String[] args) {
         FileManage.createFile();
     }
